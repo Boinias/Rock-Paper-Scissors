@@ -7,13 +7,23 @@
     <title>Document</title>
 </head>
 <body>
+    <p>Welcome to rock paper scissors!</p>
+    <button type="button">Click me to find out the winner!</button>
     <script>
-hello
+
+var playerSelection = prompt("Type in your choice of weaponry");
 
 
+var weapons = [
+'rock',
+'paper',
+'scissors',
+]
 
-
-
+function getComputerCHoice (array) {
+    let computerWeapon = array[Math.floor(Math.random() * array.length)]
+    return (computerWeapon)
+}
     </script>
 </body>
 </html>
