@@ -14,7 +14,8 @@
     <script>
 
 function prompt () {
-    prompt("Choose your weapon");
+    let prompt = prompt("Choose your weapon");
+    return (prompt)
 }
 
 var weapons = [
@@ -28,7 +29,7 @@ function getComputerCHoice (array) {
     return (computerWeapon)
     let computerWeapon = array[Math.floor(Math.random() * array.length)];
     alert (computerWeapon);
-}
+}*//
     </script>
 </body>
 </html>
