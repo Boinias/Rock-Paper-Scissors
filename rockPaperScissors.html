@@ -8,10 +8,14 @@
 </head>
 <body>
     <p>Welcome to rock paper scissors!</p>
-    <button id="btnForPrompt" onclick="firstQuestion()" >Click me to choose your weapon</button>
-    <button type="button">Click me to find out the winner!</button>
-    
+    <button id="btnForPrompt" type="button" onclick="prompt()">Choose your weapon!</button>
+    <button id="findWinner" type="button">Click me to find out the winner!</button>
+
     <script>
+
+function prompt () {
+    prompt("Choose your weapon");
+}
 
 var weapons = [
 'rock',
@@ -20,15 +24,11 @@ var weapons = [
 ]
 
 function getComputerCHoice (array) {
+    let computerWeapon = array[Math.floor(Math.random() * array.length)]
+    return (computerWeapon)
     let computerWeapon = array[Math.floor(Math.random() * array.length)];
     alert (computerWeapon);
 }
-
-function firstQuestion () {
-const initialPrompt = prompt("Type in your choice of weaponry");
-alert (initialPrompt);
-}
-
     </script>
 </body>
 </html>
