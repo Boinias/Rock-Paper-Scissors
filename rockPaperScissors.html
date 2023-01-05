@@ -25,6 +25,12 @@ var weapons = [
 'paper',
 'scissors',
 ]
+
+/*Function that randomly generates computer choices*/
+function getComputerChoice (array) {
+     let computerWeapon = array[Math.floor(Math.random() * array.length)]
+     return (computerWeapon)
+}
     </script>
 </body>
 </html>
