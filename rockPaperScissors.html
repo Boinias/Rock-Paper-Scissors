@@ -8,28 +8,23 @@
 </head>
 <body>
     <p>Welcome to rock paper scissors!</p>
-    <button id="btnForPrompt" type="button" onclick="prompt()">Choose your weapon!</button>
+    <button id="firstbutton" onclick="firstFunction()">Choose your weapon!</button>
     <button id="findWinner" type="button">Click me to find out the winner!</button>
 
     <script>
 
-function prompt () {
-    let prompt = prompt("Choose your weapon");
-    return (prompt)
-}
+/*User Input*/
+function firstFunction () {
+    let initialPrompt = prompt("Choose your weapon!");
+    return (initialPrompt)
+        }
 
+/*Array of Choices*/
 var weapons = [
 'rock',
 'paper',
 'scissors',
 ]
-
-function getComputerCHoice (array) {
-    let computerWeapon = array[Math.floor(Math.random() * array.length)]
-    return (computerWeapon)
-    let computerWeapon = array[Math.floor(Math.random() * array.length)];
-    alert (computerWeapon);
-}*//
     </script>
 </body>
 </html>
