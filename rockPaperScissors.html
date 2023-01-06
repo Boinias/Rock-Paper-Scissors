@@ -22,9 +22,6 @@ var weapons = [
 'scissors',
 ]
 
-let initialPrompt;
-let computerWeapon;
-
 /*Play round function*/
 function play () {
     const playerChoice = playerDecision()
@@ -33,14 +30,20 @@ function play () {
 
 /*User Input*/
 function playerDecision () {
-    initialPrompt = prompt("Choose your weapon!");
+    let initialPrompt = prompt("Choose your weapon!");
+    while (initialPrompt == null) {
+        initialPrompt = prompt("Choose your weapon!");
     }
+    initialPrompt = initialPrompt.toLowerCase();
+}
+
 
 /*Function that randomly generates computer choices*/
 function getComputerChoice () {
      computerWeapon = weapons[Math.floor(Math.random() * weapons.length)]
      
 }
+
 
 /*Function that decides winner*/
 function playRound (playerSelection , computerSelection) {
