@@ -15,19 +15,6 @@
 
     <script>
 
-let initialPrompt;
-let computerWeapon;
-
-function myFunc () {
-    getComputerChoice(weapons);
-    playRound(initialPrompt , computerWeapon);
-}
-
-/*User Input*/
-function firstFunction () {
-    initialPrompt = prompt("Choose your weapon!");
-    }
-
 /*Array of Choices*/
 var weapons = [
 'rock',
@@ -35,9 +22,23 @@ var weapons = [
 'scissors',
 ]
 
+let initialPrompt;
+let computerWeapon;
+
+/*Play round function*/
+function play () {
+    const playerChoice = playerDecision()
+    const computerChoice = getComputerChoice();
+}
+
+/*User Input*/
+function playerDecision () {
+    initialPrompt = prompt("Choose your weapon!");
+    }
+
 /*Function that randomly generates computer choices*/
-function getComputerChoice (array) {
-     computerWeapon = array[Math.floor(Math.random() * array.length)]
+function getComputerChoice () {
+     computerWeapon = weapons[Math.floor(Math.random() * weapons.length)]
      
 }
 
@@ -65,8 +66,6 @@ function playRound (playerSelection , computerSelection) {
         document.getElementById("result").innerHTML = "unknown";
     }
 }
-
-
 
     </script>
 </body>
