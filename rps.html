@@ -7,9 +7,29 @@
     <title>Document</title>
 </head>
 <body>
+
+    <button id="firstbutton" onclick="playerDecision()">Choose your weapon!</button>
+    <button id="findWinner" onclick="">Click me to find out the winner!</button>
+    <p id="result"></p>
+
     <script>
 
+/*Array of Choices*/
+var weapons = [
+'rock',
+'paper',
+'scissors',
 
+]
+
+/*User Input*/
+function playerDecision () {
+    let initialPrompt = prompt("Choose your weapon!");
+    while (initialPrompt == null) {
+        initialPrompt = prompt("Choose your weapon!");
+    }
+    initialPrompt = initialPrompt.toLowerCase();
+}
 
 
 
