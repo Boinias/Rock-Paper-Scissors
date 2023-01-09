@@ -40,9 +40,13 @@ function playerDecision () {
 
 /*Function that randomly generates computer choices*/
 function getComputerChoice () {
-     computerWeapon = weapons[Math.floor(Math.random() * weapons.length)]
+    computerWeapon = weapons[Math.floor(Math.random() * weapons.length)]
 }
 
+let computerWeapon;
+
+console.log (getComputerChoice ())
+console.log (computerWeapon)
 
 /*Function that decides winner*/
 function playRound (playerSelection , computerSelection) {

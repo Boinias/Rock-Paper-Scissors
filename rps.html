@@ -8,8 +8,8 @@
 </head>
 <body>
 
-    <button id="firstbutton" onclick="playerDecision()">Choose your weapon!</button>
-    <button id="findWinner" onclick="playRound">Click me to find out the winner!</button>
+    <button id="firstbutton" onclick="getComputerChoice ();playerDecision()" >Choose your weapon!</button>
+    <button id="findWinner" onclick="playRound(playerChoice,computerChoice)">Click me to find out the winner!</button>
     <p id="result"></p>
 
     <script>
@@ -30,23 +30,19 @@ var weapons = [
 
 /*User Input*/
 function playerDecision () {
-    let playerChoice = prompt("Choose your weapon!");
-    playerChoice = initialPrompt.toLowerCase();
+    playerChoice = prompt("Choose your weapon!");
+    playerChoice = playerChoice.toLowerCase();
 }
 
 /*Function that randomly generates computer choices*/
 function getComputerChoice () {
-     computerChoice = weapons[Math.floor(Math.random() * weapons.length)]
+    computerChoice = weapons[Math.floor(Math.random() * weapons.length)]
 }
-
 
 /*Function that puts the two scores against each other*/
 function playRound (playerSelection , computerSelection) {
-    if (playerSelection ===computerSelection) {
+    if (playerSelection == computerSelection) {
     document.getElementById("result").innerHTML = "Draw";
-    } else if (playerSelection === "rock" && computerSelection === "paper"){
-    document.getElementById("result").innerHTML = "Loss - paper beats rock";
-    computerChoice ++
     } else if (playerSelection === "paper" && computerSelection === "rock"){
     document.getElementById("result").innerHTML = "Win - paper beats rock";
     } else if (playerSelection === "rock" && computerSelection === "scissors"){
@@ -60,6 +56,7 @@ function playRound (playerSelection , computerSelection) {
     } else {
         document.getElementById("result").innerHTML = "unknown";
     }
+}
 
     </script>
 </body>
