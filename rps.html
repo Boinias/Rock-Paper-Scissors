@@ -9,30 +9,57 @@
 <body>
 
     <button id="firstbutton" onclick="playerDecision()">Choose your weapon!</button>
-    <button id="findWinner" onclick="">Click me to find out the winner!</button>
+    <button id="findWinner" onclick="playRound">Click me to find out the winner!</button>
     <p id="result"></p>
 
     <script>
+
+/*Empty components filled and used by code below*/
+let playerChoice;
+let computerChoice;
+
+let playerScore = 0;
+let computerScore = 0;
 
 /*Array of Choices*/
 var weapons = [
 'rock',
 'paper',
 'scissors',
-
 ]
 
 /*User Input*/
 function playerDecision () {
-    let initialPrompt = prompt("Choose your weapon!");
-    while (initialPrompt == null) {
-        initialPrompt = prompt("Choose your weapon!");
-    }
-    initialPrompt = initialPrompt.toLowerCase();
+    let playerChoice = prompt("Choose your weapon!");
+    playerChoice = initialPrompt.toLowerCase();
+}
+
+/*Function that randomly generates computer choices*/
+function getComputerChoice () {
+     computerChoice = weapons[Math.floor(Math.random() * weapons.length)]
 }
 
 
-
+/*Function that puts the two scores against each other*/
+function playRound (playerSelection , computerSelection) {
+    if (playerSelection ===computerSelection) {
+    document.getElementById("result").innerHTML = "Draw";
+    } else if (playerSelection === "rock" && computerSelection === "paper"){
+    document.getElementById("result").innerHTML = "Loss - paper beats rock";
+    computerChoice ++
+    } else if (playerSelection === "paper" && computerSelection === "rock"){
+    document.getElementById("result").innerHTML = "Win - paper beats rock";
+    } else if (playerSelection === "rock" && computerSelection === "scissors"){
+    document.getElementById("result").innerHTML = "Win - rock beats scissors";
+    } else if (playerSelection === "scissors" && computerSelection === "rock"){
+    document.getElementById("result").innerHTML = "Loss - rock beats scissors";
+    } else if (playerSelection === "paper" && computerSelection === "scissors"){
+    document.getElementById("result").innerHTML = "Loss - scissors beats paper";
+    } else if (playerSelection === "scissors" && computerSelection === "paper"){
+    document.getElementById("result").innerHTML = "Win - scissors beats paper";
+    } else {
+        document.getElementById("result").innerHTML = "unknown";
+    }
 
     </script>
 </body>
