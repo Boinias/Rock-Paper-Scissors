@@ -26,8 +26,13 @@
             computerScore = computerScore+1;
         }
 
+        /*Counter*/
         let counter = document.getElementById("score").innerHTML = `Player 1 ${playerScore.toString()} VS Computer ${computerScore.toString()}`;
-        
+        function counterAddition () {
+        counter = document.getElementById("score").innerHTML = `Player 1 ${playerScore.toString()} VS Computer ${computerScore.toString()}`;
+        }
+
+
         /*Array of Weapons*/
         var weapons = [
         'rock',
@@ -35,6 +40,7 @@
         'scissors',
         ]
         
+
         /*User Input*/
         let playerChoice;
         function playerDecision () {
@@ -42,7 +48,7 @@
             return (playerChoice);
         }
         
-        /*Function that randomly generates computer choices*/
+
         /*Computer Input*/
         let computerChoice;
         function getComputerChoice () {
@@ -83,20 +89,18 @@
             } else {
                     document.getElementById("result").innerHTML = "unknown";
                 }
+
+            switch (playerScore) {
+            case 5:
+            document.getElementById("winner").innerHTML = "You win!";
         }
 
-        /*Counter*/
-        function counterAddition () {
-            counter = document.getElementById("score").innerHTML = `Player 1 ${playerScore.toString()} VS Computer ${computerScore.toString()}`;
+            switch (computerScore) {
+            case 5:
+            document.getElementById("winner").innerHTML = "You lose!";
+        }
         }
 
-        if (playerScore==5) {
-            document.getElementById("winner").innerHTML = "you win"
-        } else if (computerScore==5) {
-            document.getElementById("winner").innerHTML = "you lose"
-        } else if (playerScore==5 && computerScore==5) {
-            document.getElementById("winner").innerHTML = "you draw"
-          }
         
         </script>
 </body>
