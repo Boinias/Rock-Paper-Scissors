@@ -12,10 +12,22 @@
     <button id="findWinner" onclick="playRound(playerChoice,computerChoice)">Click me to find out the winner!</button>
     <h id="score"></h>
     <p id="result"></p>
+    <p id="winner"></p>
 
     <script>
 
-        /*Array of Choices*/
+         /*Score Variables*/
+        let computerScore = 0;
+        let playerScore = 0;
+        function playerScoreAdd () {
+            playerScore = playerScore+1;
+        }
+        function computerScoreAdd () {
+            computerScore = computerScore+1;
+        }
+
+        let counter = document.getElementById("score").innerHTML = `Player 1 ${playerScore.toString()} VS Computer ${computerScore.toString()}`;
+        
         /*Array of Weapons*/
         var weapons = [
         'rock',
@@ -35,16 +47,6 @@
         let computerChoice;
         function getComputerChoice () {
             computerChoice = weapons[Math.floor(Math.random() * weapons.length)]
-        }
-        
-        /*Score Variables*/
-        let playerScore = 0;
-        let computerScore = 0;
-        function playerScoreAdd () {
-            playerScore = playerScore+1;
-        }
-        function computerScoreAdd () {
-            computerScore = computerScore+1;
         }
         
         
@@ -84,10 +86,17 @@
         }
 
         /*Counter*/
-        let counter = counterAddition ()
         function counterAddition () {
             counter = document.getElementById("score").innerHTML = `Player 1 ${playerScore.toString()} VS Computer ${computerScore.toString()}`;
         }
+
+        if (playerScore==5) {
+            document.getElementById("winner").innerHTML = "you win"
+        } else if (computerScore==5) {
+            document.getElementById("winner").innerHTML = "you lose"
+        } else if (playerScore==5 && computerScore==5) {
+            document.getElementById("winner").innerHTML = "you draw"
+          }
         
         </script>
 </body>
