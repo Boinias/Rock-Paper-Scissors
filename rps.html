@@ -15,29 +15,36 @@
 
     <script>
 
-/*Array of Choices*/
+/*Array of Weapons*/
 var weapons = [
 'rock',
 'paper',
 'scissors',
 ]
 
-let playerChoice;
-let computerChoice;
-
 /*User Input*/
+let playerChoice;
 function playerDecision () {
     playerChoice = prompt("Choose your weapon!");
     return (playerChoice);
 }
 
-/*Function that randomly generates computer choices*/
+/*Computer Input*/
+let computerChoice;
 function getComputerChoice () {
     computerChoice = weapons[Math.floor(Math.random() * weapons.length)]
 }
 
+/*Score Variables*/
 let playerScore = 0;
 let computerScore = 0;
+function playerScoreAdd () {
+    playerScore = playerScore+1;
+}
+function computerScoreAdd () {
+    computerScore = computerScore+1;
+}
+
 
 /*Function that puts the two scores against each other*/
 function playRound (playerSelection , computerSelection) {
@@ -45,29 +52,41 @@ function playRound (playerSelection , computerSelection) {
     if (playerSelection == computerSelection) {
         document.getElementById("result").innerHTML = "Draw";
     } else if (playerSelection === "paper" && computerSelection === "rock"){
+        playerScoreAdd ()
+        counterAddition ()
         document.getElementById("result").innerHTML = "Win - paper beats rock";
-        playerScore = playerScore++;
     } else if (playerSelection === "rock" && computerSelection === "scissors"){
+        playerScoreAdd ()
+        counterAddition ()
         document.getElementById("result").innerHTML = "Win - Rock beats Scissors";
-        playerScore = playerScore++;
     } else if (playerSelection === "scissors" && computerSelection === "rock"){
+        computerScoreAdd ()
+        counterAddition ()
         document.getElementById("result").innerHTML = "Loss - Rock beats Scissors";
-        computerScore = computerScore++;
     } else if (playerSelection === "paper" && computerSelection === "scissors"){
+        computerScoreAdd ()
+        counterAddition ()
         document.getElementById("result").innerHTML = "Loss - Scissors beats paper";
-        computerScore = computerScore++;
     } else if (playerSelection === "scissors" && computerSelection === "paper"){
+        playerScoreAdd ()
+        counterAddition ()
         document.getElementById("result").innerHTML = "Win - scissors beats paper";
-        playerScore = playerScore++;
     } else if (playerSelection === "rock" && computerSelection === "paper"){
+        computerScoreAdd ()
+        counterAddition ()
         document.getElementById("result").innerHTML = "Loss - Paper beats rock";
-        computerScore = computerScore++;
+
     } else {
             document.getElementById("result").innerHTML = "unknown";
         }
 }
 
-let counter = document.getElementById("score").innerHTML = `Player 1 ${playerScore.toString()} VS Computer ${computerScore.toString()}`;
+/*Counter*/
+let counter = counterAddition ()
+function counterAddition () {
+    counter = document.getElementById("score").innerHTML = `Player 1 ${playerScore.toString()} VS Computer ${computerScore.toString()}`;
+}
+
 </script>
 </body>
 </html>
