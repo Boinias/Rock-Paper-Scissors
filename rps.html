@@ -8,7 +8,8 @@
 </head>
 <body>
 
-    <button id="firstbutton" onclick="computerScore = 0; playerScore = 0; getComputerChoice (); playerDecision()">Choose your weapon!</button>
+    <button id="firstbutton" onclick="getComputerChoice (); playerDecision()">Choose your weapon!</button>
+
     <button id="findWinner" onclick="playRound(playerChoice,computerChoice)">Click me to find out the winner!</button>
     <button id="again" onclick="location.reload()">Click me to play again</button>
     <h id="score"></h>
@@ -36,17 +37,21 @@
         'paper',
         'scissors',
         ]
+        
         /*User Input*/
         let playerChoice;
         function playerDecision () {
             playerChoice = prompt("Choose your weapon!");
             return (playerChoice);
         }
+        
         /*Computer Input*/
         let computerChoice;
         function getComputerChoice () {
             computerChoice = weapons[Math.floor(Math.random() * weapons.length)]
         }
+        
+        
         /*Function that puts the two scores against each other*/
         function playRound (playerSelection , computerSelection) {
             getComputerChoice ()
@@ -84,13 +89,14 @@
             switch (playerScore) {
             case 5:
             document.getElementById("winner").innerHTML = "You win!";
-        
-            }
+
+        }
+
             switch (computerScore) {
             case 5:
             document.getElementById("winner").innerHTML = "You lose!";
-            }
-            }
+        }
+        }
         </script>
 </body>
 </html>
