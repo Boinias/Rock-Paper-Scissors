@@ -16,7 +16,6 @@
     <p id="winner"></p>
 
     <script>
-
          /*Score Variables*/
         let computerScore = 0;
         let playerScore = 0;
@@ -26,37 +25,28 @@
         function computerScoreAdd () {
             computerScore = computerScore+1;
         }
-
         /*Counter*/
         let counter = document.getElementById("score").innerHTML = `Player 1 ${playerScore.toString()} VS Computer ${computerScore.toString()}`;
         function counterAddition () {
         counter = document.getElementById("score").innerHTML = `Player 1 ${playerScore.toString()} VS Computer ${computerScore.toString()}`;
         }
-
-
         /*Array of Weapons*/
         var weapons = [
         'rock',
         'paper',
         'scissors',
         ]
-        
-
         /*User Input*/
         let playerChoice;
         function playerDecision () {
             playerChoice = prompt("Choose your weapon!");
             return (playerChoice);
         }
-        
-
         /*Computer Input*/
         let computerChoice;
         function getComputerChoice () {
             computerChoice = weapons[Math.floor(Math.random() * weapons.length)]
         }
-        
-        
         /*Function that puts the two scores against each other*/
         function playRound (playerSelection , computerSelection) {
             getComputerChoice ()
@@ -92,18 +82,15 @@
                 }
 
             switch (playerScore) {
-            case 1:
+            case 5:
             document.getElementById("winner").innerHTML = "You win!";
-            
-        }
-
-            switch (computerScore) {
-            case 1:
-            document.getElementById("winner").innerHTML = "You lose!";
-        }
-        }
-
         
+            }
+            switch (computerScore) {
+            case 5:
+            document.getElementById("winner").innerHTML = "You lose!";
+            }
+            }
         </script>
 </body>
 </html>
