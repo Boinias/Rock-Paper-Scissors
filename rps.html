@@ -8,9 +8,11 @@
 </head>
 <body>
 
-    <button id="firstbutton" onclick="getComputerChoice (); playerDecision()">Choose your weapon!</button>
+    <button id="firstbutton" onclick="getComputerChoice (); playerDecision()"
+                                     >Choose your weapon!</button>
 
-    <button id="findWinner" onclick="playRound(playerChoice,computerChoice)">Click me to find out the winner!</button>
+    <button id="findWinner" onclick="playRound(playerChoice,computerChoice)"
+               >Click me to find out the winner!</button>
     <button id="again" onclick="location.reload()">Click me to play again</button>
     <h id="score"></h>
     <p id="result"></p>
@@ -27,9 +29,11 @@
             computerScore = computerScore+1;
         }
         /*Counter*/
-        let counter = document.getElementById("score").innerHTML = `Player 1 ${playerScore.toString()} VS Computer ${computerScore.toString()}`;
+        let counter = document.getElementById("score").innerHTML =
+                      `Player 1 ${playerScore.toString()} VS Computer ${computerScore.toString()}`;
         function counterAddition () {
-        counter = document.getElementById("score").innerHTML = `Player 1 ${playerScore.toString()} VS Computer ${computerScore.toString()}`;
+        counter = document.getElementById("score").innerHTML =
+                 `Player 1 ${playerScore.toString()} VS Computer ${computerScore.toString()}`;
         }
         /*Array of Weapons*/
         var weapons = [
@@ -41,8 +45,14 @@
         /*User Input*/
         let playerChoice;
         function playerDecision () {
+            if (playerScore == 5 || computerScore == 5) {
+                playerChoice = null
+            } else {
             playerChoice = prompt("Choose your weapon!");
             return (playerChoice);
+            }
+
+
         }
         
         /*Computer Input*/
@@ -89,6 +99,7 @@
             switch (playerScore) {
             case 5:
             document.getElementById("winner").innerHTML = "You win!";
+
 
         }
 
